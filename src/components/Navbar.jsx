@@ -1,9 +1,14 @@
 import React from 'react';
+import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav style={{ padding: '10px', backgroundColor: '#f8f9fa' }}>
+    <nav className="navbar">
       <h1>Service Platform</h1>
+      <div>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+      </div>
     </nav>
   );
 };

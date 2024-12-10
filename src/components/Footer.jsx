@@ -1,8 +1,9 @@
 import React from 'react';
+import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer style={{ padding: '10px', textAlign: 'center', backgroundColor: '#f8f9fa' }}>
+    <footer>
       <p>&copy; 2024 Service Platform. All rights reserved.</p>
     </footer>
   );

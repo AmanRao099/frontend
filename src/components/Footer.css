@@ -1,0 +1,18 @@
+/* Footer.css */
+footer {
+    background-color: #1e1e2e; /* Dark background */
+    color: #8ab4f8; /* Subtle accent color */
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  

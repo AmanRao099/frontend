@@ -1,0 +1,23 @@
+/* Home.css */
+.home-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #e0e0e0; /* Light text color */
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #121212; /* Deep dark background */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Depth for the card */
+  }
+  
+  .home-container h2 {
+    margin-bottom: 10px;
+    color: #8ab4f8; /* Accent color */
+  }
+  
+  .home-container ul {
+    list-style-type: circle;
+    padding-left: 20px;
+  }
+  

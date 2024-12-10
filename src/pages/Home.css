@@ -11,13 +11,21 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Depth for the card */
   }
   
+ /* Home.css */
+.home-container {
+    font-size: 16px; /* Standard body text size */
+    font-weight: 300; /* Light and clean */
+  }
+  
   .home-container h2 {
-    margin-bottom: 10px;
-    color: #8ab4f8; /* Accent color */
+    font-size: 24px; /* Larger for section titles */
+    font-weight: 600; /* Bold for prominence */
+    color: #8ab4f8;
   }
   
   .home-container ul {
-    list-style-type: circle;
-    padding-left: 20px;
+    font-size: 16px; /* Standard size for list items */
+    font-weight: 300; /* Light weight */
   }
+  
   

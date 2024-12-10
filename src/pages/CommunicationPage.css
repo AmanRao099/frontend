@@ -1,0 +1,57 @@
+.communication-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #e0e0e0;
+  }
+  
+  .chat-container {
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #1e1e2e;
+  }
+  
+  .messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #2e2e3e;
+    border-radius: 5px;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3e3e4e;
+  }
+  
+  .message-form {
+    display: flex;
+  }
+  
+  .message-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #2e2e3e;
+    color: #e0e0e0;
+    margin-right: 10px;
+  }
+  
+  .message-form button {
+    padding: 10px 20px;
+    background-color: #fca311;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .message-form button:hover {
+    background-color: #e85d04;
+  }
+  

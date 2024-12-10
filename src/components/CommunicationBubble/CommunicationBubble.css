@@ -1,0 +1,27 @@
+.communication-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #fca311;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .communication-bubble:hover {
+    transform: scale(1.1);
+    background-color: #e85d04;
+  }
+  
+  .communication-bubble-icon {
+    font-size: 24px;
+    color: #fff;
+  }
+  

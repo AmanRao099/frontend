@@ -1,41 +1,58 @@
-/* InitialPage.css */
-
-/* Page container */
+/* src/pages/InitialPage.css */
 .initial-page {
-    background-color: #1e1e2e;
-    color: #fca311;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    padding: 30px;
+    position: relative;
+    width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Title styling */
-  .initial-page h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
-  
-  .initial-page p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  /* Container for the Spline iframe */
-  .spline-container {
-    max-width: 100%;
-    width: 80%;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+}
+
+/* Overlay container is no longer centered */
+.overlay {
+    position: absolute;
+    left: 1%; /* Moves the overlay container towards the left side */
+    top: 25%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+/* Style for h1 to bring it to the left and highlight text with black background */
+/* Style for h1 to make it 3D and block-like */
+.overlay h1 {
+    font-size: 5rem;
+    color: transparent; /* Ensure the text color is transparent */
+    text-shadow: 2px 2px 0px black, /* Shadow for 3D effect */
+                 4px 4px 0px rgba(0, 0, 0, 0.5); /* Additional depth */
+    background: linear-gradient(to right, #534c4b, #676461); /* Gradient background */
+    -webkit-background-clip: text; /* Vendor prefix for WebKit (Chrome, Safari) */
+    background-clip: text; /* Standard property */
+    -webkit-text-fill-color: transparent; /* Ensures text gradient is visible in WebKit */
+    padding: 20px 30px; /* Adds padding to highlight the background */
+    margin: 10px 0; /* Margin for spacing */
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Makes it block-like */
+}
+
+
+/* Style for the paragraph */
+.overlay p {
+    font-size: 1.2rem;
+    margin-top: 10px; /* Adds some space from the title */
+    color: white; /* White text for the paragraph */
+}
+/* Style for the Explore button */
+.explore-button {
+    margin-top: 5px;
+    
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
-  .spline-container iframe {
-    border-radius: 10px;
+  .explore-button:hover {
+    background-color: #333;
   }
-  

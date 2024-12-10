@@ -1,110 +1,28 @@
-/* Navbar container */
+/* src/components/Navbar.css */
 .navbar {
-    background-color: #333;
-    color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    background-color: #121212; /* Dark background */
+    color: white;
   }
   
-  /* Navbar container for inner elements */
-  .navbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  /* Navbar title */
-  .navbar-title {
+  .navbar-logo a {
+    text-decoration: none;
+    color: white;
     font-size: 1.5rem;
     font-weight: bold;
-    text-decoration: none;
-    color: #f9f9f9;
-    margin-right: 20px;
-    transition: color 0.3s ease;
   }
   
-  .navbar-title:hover {
-    color: #fca311;
-  }
-  
-  /* Hamburger menu (2-bar) icon */
-  .menu-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 25px;
-    width: 30px;
-    cursor: pointer;
-    z-index: 1001;
-  }
-  
-  /* Individual bars in the hamburger icon */
-  .menu-bar {
-    height: 4px;
-    width: 100%;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-  }
-  
-  /* Collapsible menu links */
-  .navbar-links {
-    display: flex;
-    gap: 20px;
-    transition: max-height 0.3s ease;
-    margin-right: 20px;
-  }
-  
-  /* Navbar links style */
   .navbar-links a {
+    margin-left: 20px;
     text-decoration: none;
-    color: #f9f9f9;
+    color: white;
     font-size: 1rem;
-    padding: 5px 10px;
-    transition: color 0.3s ease;
   }
   
   .navbar-links a:hover {
-    color: #fca311;
-    background-color: rgba(255, 165, 0, 0.2);
-    border-radius: 5px;
-  }
-  
-  /* Collapsible menu for small screens */
-  @media (max-width: 768px) {
-    .navbar-links {
-      flex-direction: column;
-      max-height: 0;
-      overflow: hidden;
-      width: 100%;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      background-color: #333;
-      padding: 10px 0;
-    }
-  
-    .navbar-links.open {
-      max-height: 400px; /* Adjust height as needed */
-    }
-  
-    .navbar-links a {
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid #444;
-    }
-  
-    /* Menu icon styles */
-    .menu-icon {
-      display: flex;
-    }
+    color: #8ab4f8; /* Highlight on hover */
   }
   

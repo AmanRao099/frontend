@@ -1,42 +1,51 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { auth } from '../firebase/firebase';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import './Navbar.css';
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const NavBar = () => {
+  const [user, setUser] = useState(null);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      alert('Successfully logged out!');
+      setUser(null);
+    } catch (error) {
+      console.error('Logout Error:', error);
+    }
   };
 
   return (
     <nav className="navbar">
-      <div className="navbar-container">
-        <Link to="/" className="navbar-title">
-          Service Platform
-        </Link>
-
-        <div className="menu-icon" onClick={toggleMenu}>
-          <div className="menu-bar"></div>
-          <div className="menu-bar"></div>
-          <div className="menu-bar"></div>
-        </div>
-
-        <div className={`navbar-links ${isMenuOpen ? 'open' : ''}`}>
-          <Link to="/ac-technicians">AC Technicians</Link>
-          <Link to="/electricians">Electricians</Link>
-          <Link to="/plumbers">Plumbers</Link>
-          <Link to="/mechanics">Mechanics</Link>
-          <Link to="/carpenters">Carpenters</Link>
-          <Link to="/technicians">Technicians</Link>
-          <Link to="/cleaning-pest-control">Cleaning & Pest Control</Link>
-          <Link to="/home-appliances-repair">Home Appliances Repair</Link>
-          <Link to="/building-paintings">Building Paintings</Link>
-          <Link to="/other-services">Other Services</Link>
-        </div>
+      <h1 className="navbar-logo">My App</h1>
+      <div className="navbar-right">
+        {user ? (
+          <div className="user-section">
+            <img
+              src={user.photoURL}
+              alt="Profile"
+              className="navbar-pfp"
+              title={user.displayName}
+            />
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <button className="login-btn">Login</button>
+        )}
       </div>
     </nav>
   );
 };
 
-export default Navbar;
+export default NavBar;

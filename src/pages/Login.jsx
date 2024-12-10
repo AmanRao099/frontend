@@ -6,20 +6,25 @@ import {
   onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Login.css';
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false); // Toggle between Sign In and Sign Up
   const [user, setUser] = useState(null); // Store signed-in user info
+  const navigate = useNavigate(); // Hook to navigate to different routes
 
   // Monitor authentication state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser); // Update user state
+      if (currentUser) {
+        navigate('/home'); // Redirect to Home page when logged in
+      }
     });
 
     return () => unsubscribe(); // Cleanup subscription
-  }, []);
+  }, [navigate]);
 
   const handleGoogleSignIn = async () => {
     try {
@@ -49,6 +54,7 @@ const Login = () => {
       await signOut(auth);
       alert('Successfully logged out!');
       setUser(null);
+      navigate('/login'); // Redirect to login page after logout
     } catch (error) {
       console.error('Logout Error:', error);
     }
@@ -59,7 +65,7 @@ const Login = () => {
       {user ? (
         <div className="user-info">
           <img
-            src={user.photoURL}
+            src={user.photoURL || 'default-avatar-url'} // Use default if no photoURL
             alt="User Profile"
             className="user-pfp"
             title={user.displayName}

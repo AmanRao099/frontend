@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Bubble from '../components/CommunicationBubble/CommunicationBubble';
 import './InitialPage.css';
 
 const InitialPage = () => {
@@ -52,6 +53,8 @@ const InitialPage = () => {
           Explore Services
         </button>
       </div>
+      {/* Bubble Component - Chatbot */}
+      <Bubble />
     </div>
   );
 };

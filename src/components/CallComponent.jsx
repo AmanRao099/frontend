@@ -7,9 +7,9 @@ const CallComponent = () => {
   const localVideoRef = useRef(null);
 
   const joinCall = async () => {
-    const appId = 'YOUR_AGORA_APP_ID';
-    const token = 'YOUR_TEMPORARY_TOKEN';
-    const channel = 'testChannel';
+    const appId = '6ca7c34439524ba3aeac33e47938cf61';
+    const token = '007eJxTYLgt67Q9SvPzjIPf7MOP8MxeXvWyLbfV7UtH0WrlJ//suJkUGMySE82TjU1MjC1NjUySEo0TUxOTjY1TTcwtjS2S08wMLyyNSG8IZGQIkVnLwsgAgSA+C0NJam4BAwMAlr4gIA==';
+    const channel = 'temp';
 
     // Join the channel
     await client.join(appId, channel, token, null);

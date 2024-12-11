@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// src/components/ChatWindow.js
+import React, { useState, useEffect } from 'react';
 import { database } from '../firebase/firebase';
 import { ref, push, onValue } from 'firebase/database';
 import './ChatWindow.css';
@@ -8,11 +9,13 @@ const ChatWindow = () => {
   const [messages, setMessages] = useState([]);
 
   // Fetch messages
-  React.useEffect(() => {
+  useEffect(() => {
     const messagesRef = ref(database, 'messages/');
     onValue(messagesRef, (snapshot) => {
       const data = snapshot.val();
       const loadedMessages = data ? Object.values(data) : [];
+      // Sorting messages based on timestamp to show them in correct order
+      loadedMessages.sort((a, b) => a.timestamp - b.timestamp);
       setMessages(loadedMessages);
     });
   }, []);

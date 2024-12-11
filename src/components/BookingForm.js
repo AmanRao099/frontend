@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { fetchAvailableSlots, submitBooking } from "../api/apiService";
+import { submitBooking } from "../api/apiService";
 import Notification from "./Notification";
 import { useNavigate } from "react-router-dom";
 import './BookingForm.css';
@@ -13,7 +13,6 @@ const BookingForm = () => {
     date: new Date(),
     service: "",
   });
-  const [availableSlots, setAvailableSlots] = useState([]);
   const [notification, setNotification] = useState(null);
 
   const navigate = useNavigate();
@@ -24,27 +23,27 @@ const BookingForm = () => {
     { id: 2, time: "1:00 - 4:00" }
   ];
 
-  useEffect(() => {
-    // Example: Fetching slots from backend could be placed here.
-    // const loadSlots = async () => {
-    //   const slots = await fetchAvailableSlots();
-    //   setAvailableSlots(slots);
-    // };
-    // loadSlots();
-
-    // For demo, use hardcoded slots
-    setAvailableSlots(timingSlots);
-  }, []);
+  const [availableSlots, setAvailableSlots] = useState(timingSlots);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await submitBooking(formData);
-    if (response.success) {
-      setNotification({ message: response.message, type: "success" });
-      setFormData({ name: "", contact: "", date: new Date(), service: "" });
-      navigate("/payment");
-    } else {
-      setNotification({ message: "Booking failed!", type: "error" });
+    try {
+      // Send form data to backend API for storage
+      const response = await submitBooking(formData);
+
+      if (response.success) {
+        setNotification({ message: "Booking Confirmed!", type: "success" });
+
+        // Reset form after successful booking
+        setFormData({ name: "", contact: "", date: new Date(), service: "" });
+
+        // Redirect to the payment page
+        navigate("/payment"); 
+      } else {
+        setNotification({ message: "Booking failed!", type: "error" });
+      }
+    } catch (error) {
+      setNotification({ message: "Booking failed! Please try again.", type: "error" });
     }
   };
 

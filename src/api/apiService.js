@@ -1,27 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
 
-const api = axios.create({
-  baseURL: "http://localhost:5000/api",  // Backend URL
-});
-
-// Fetch available slots (optional for future implementation)
-export const fetchAvailableSlots = async () => {
-  try {
-    const response = await api.get("/slots");
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching slots", error);
-    return [];
-  }
-};
-
-// Submit booking to backend
+// Assuming the backend is running on localhost:3001
 export const submitBooking = async (formData) => {
   try {
-    const response = await api.post("/bookings", formData);
-    return response.data;
+    const response = await axios.post('http://localhost:3001/api/submit-booking', formData);
+    return response.data;  // Return the response from the backend
   } catch (error) {
-    console.error("Error submitting booking", error);
-    return { success: false, message: "Booking failed!" };
+    console.error('Error submitting booking:', error);
+    throw new Error('Booking submission failed');
   }
 };

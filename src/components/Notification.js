@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from "react";
-import "./Notification.css";
+import React, { useEffect } from 'react';
+import './Notification.css';
 
-const Notification = ({ message, type = "info", onClose }) => {
-  const [isVisible, setIsVisible] = useState(true);
-
+const Notification = ({ message, type, onClose }) => {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-      if (onClose) onClose();
-    }, 5000);
-
+    // Automatically close the notification after 3 seconds
+    const timer = setTimeout(onClose, 3000);
     return () => clearTimeout(timer);
   }, [onClose]);
-
-  if (!isVisible) return null;
 
   return (
     <div className={`notification ${type}`}>
       <p>{message}</p>
-      <button onClick={() => setIsVisible(false)}>X</button>
     </div>
   );
 };
